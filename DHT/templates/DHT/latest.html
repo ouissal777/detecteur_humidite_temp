@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="10">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dernière mesure DHT11</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 80px; }
+    .value { font-size: 3rem; margin: 10px 0; }
+    .date { color: #666; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>Dernière mesure</h1>
+  {% if last %}
+    <div class="value"> {{ last.temp }} °C</div>
+    <div class="value"> {{ last.hum }} %</div>
+    <div class="date">Reçue le {{ last.dt|date:"d/m/Y à H:i:s" }} (UTC)</div>
+  {% else %}
+    <p>Aucune mesure reçue pour l'instant.</p>
+  {% endif %}
+</body>
+</html>
