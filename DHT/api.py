@@ -1,3 +1,4 @@
+from .models import Dht11
 from .serializers import DHT11serialize
 from rest_framework.decorators import api_view
 from rest_framework import generics
