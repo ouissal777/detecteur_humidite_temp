@@ -23,7 +23,7 @@ class Dhtviews(generics.CreateAPIView):
 
     def perform_create(self, serializer):
         data = serializer.save()
-        temperature = data.temperature
+        temperature = data.temp
 
         if temperature > 25:
             message = f"Alerte ! Temperature = {temperature} °C"
@@ -31,7 +31,7 @@ class Dhtviews(generics.CreateAPIView):
             send_mail(
                 subject="Alerte Temperature",
                 message=message,
-                from_email=settings.EMAIL_HOST_USER,
+                from_email=settings.EMAIL_SENDER,
                 recipient_list=[settings.DESTINATAIRE],
                 fail_silently=False
             )
